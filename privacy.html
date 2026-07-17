@@ -1,111 +1,255 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Liftrune Privacy Policy / 개인정보 처리방침</title>
+<title>Liftrune 개인정보처리방침 / Privacy Policy</title>
 <style>
-  :root { color-scheme: light dark; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Roboto, sans-serif;
-    line-height: 1.6;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 1.5rem 1.25rem 4rem;
-    color: #1a1a1a;
-    background: #fff;
+  :root { --fg:#1a1a1a; --muted:#666; --line:#e5e5e5; --accent:#2563eb; --bg:#fff; --note:#f6f8fa; }
+  @media (prefers-color-scheme: dark){
+    :root { --fg:#e6e6e6; --muted:#9aa0a6; --line:#333; --accent:#6ea8fe; --bg:#15171a; --note:#1e2126; }
   }
-  @media (prefers-color-scheme: dark) {
-    body { color: #e8e8e8; background: #121212; }
-    a { color: #79b8ff; }
-  }
-  h1 { font-size: 1.75rem; margin-top: 2rem; }
-  h2 { font-size: 1.15rem; margin-top: 1.75rem; }
-  .meta { color: #666; font-size: 0.95rem; }
-  .lang-nav { margin: 1rem 0 2rem; font-size: 0.95rem; }
-  .lang-nav a { margin-right: 0.75rem; }
-  section + section { margin-top: 1rem; }
-  hr.lang-divider { margin: 3rem 0; border: 0; border-top: 1px solid #ddd; }
-  @media (prefers-color-scheme: dark) { hr.lang-divider { border-top-color: #333; } }
-  p { margin: 0.5rem 0 1rem; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
+    line-height:1.65; }
+  .wrap { max-width:760px; margin:0 auto; padding:32px 20px 80px; }
+  h1 { font-size:1.5rem; margin:0 0 4px; }
+  h2 { font-size:1.15rem; margin:32px 0 8px; padding-top:8px; border-top:1px solid var(--line); }
+  h2:first-of-type { border-top:none; }
+  .eff { color:var(--muted); font-size:.9rem; margin:0 0 20px; }
+  .summary { background:var(--note); border-left:3px solid var(--accent); padding:14px 16px; border-radius:8px; margin:18px 0; }
+  table { width:100%; border-collapse:collapse; font-size:.9rem; margin:10px 0; display:block; overflow-x:auto; }
+  th,td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--note); }
+  ul { padding-left:20px; }
+  a { color:var(--accent); }
+  .toggle { display:flex; gap:8px; margin-bottom:24px; }
+  .toggle button { font:inherit; cursor:pointer; padding:6px 14px; border:1px solid var(--line);
+    background:var(--bg); color:var(--fg); border-radius:999px; }
+  .toggle button.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .lang { display:none; }
+  .lang.active { display:block; }
+  .foot { color:var(--muted); font-size:.82rem; margin-top:40px; border-top:1px solid var(--line); padding-top:16px; }
 </style>
 </head>
 <body>
+<div class="wrap">
+  <div class="toggle">
+    <button id="btn-ko" class="active" onclick="setLang('ko')">한국어</button>
+    <button id="btn-en" onclick="setLang('en')">English</button>
+  </div>
 
-<nav class="lang-nav">
-  <a href="#en">English</a>
-  <a href="#ko">한국어</a>
-</nav>
+  <!-- ================= 한국어 ================= -->
+  <section id="ko" class="lang active">
+    <h1>Liftrune 개인정보처리방침</h1>
+    <p class="eff">시행일: 2026-06-26 · 최종 개정: 2026-07-17</p>
 
-<section id="en" lang="en">
-  <h1>Liftrune Privacy Policy</h1>
-  <p class="meta">Effective: May 21, 2026</p>
+    <div class="summary">
+      <strong>핵심 요약 — 본 앱은 이용자의 개인정보를 서버로 수집하지 않습니다.</strong><br>
+      본 앱은 별도의 서버를 운영하지 않습니다(local-first). 개발자는 이용자의 운동 기록·신체 정보·사진 등 어떠한 데이터도
+      <strong>수집·저장·열람하지 않으며</strong>, 모든 데이터는 <strong>이용자의 기기 내부</strong> 또는
+      <strong>이용자 본인의 Google Drive</strong>에만 저장됩니다.
+    </div>
 
-  <p>Liftrune is a local-first app that stores your workout records on your device. This policy explains what data Liftrune processes and where it sends that data.</p>
+    <h2>1. 처리하는 정보 및 목적</h2>
+    <table>
+      <tr><th>구분</th><th>정보 항목</th><th>저장 위치</th><th>목적</th><th>주체</th></tr>
+      <tr><td>운동/신체 데이터</td><td>운동 기록, 프로그램, 체성분, 신체 사진</td><td>이용자 기기</td><td>운동 기록·관리</td><td>이용자 본인(개발자 수집 없음)</td></tr>
+      <tr><td>백업 데이터</td><td>위 데이터의 백업</td><td>이용자 본인 Google Drive(앱 전용 폴더)</td><td>이용자 선택 백업/복원</td><td>이용자 본인(Google)</td></tr>
+      <tr><td>로그인 정보</td><td>Google 계정(이메일)</td><td>Google 인증 시스템</td><td>Drive 백업 인증</td><td>Google</td></tr>
+      <tr><td>광고 식별자</td><td>광고 ID, 기기/앱 정보</td><td>Google(AdMob) 서버</td><td>광고 게재</td><td>Google LLC</td></tr>
+      <tr><td>위치 정보</td><td>단말기 위치(GPS)</td><td>기기 내에서만 일시 처리(미전송)</td><td>가까운 즐겨찾기 헬스장 추천</td><td>이용자 본인</td></tr>
+    </table>
+    <p>본 앱은 위 정보를 <strong>개발자 서버로 전송하거나 수집하지 않습니다.</strong> 운동·신체·사진 데이터는 전적으로 이용자 기기 및 본인 Google Drive에만 존재합니다. 체성분 측정값과 신체 사진은 <strong>민감정보(건강정보)</strong>로서, 최초 저장 전에 앱 내 <strong>별도 동의</strong>를 받은 경우에만 저장됩니다.</p>
 
-  <h2 id="en-data-collected">What we store</h2>
-  <p>Liftrune stores the following data in an on-device ObjectBox database: workout programs, session and set records, body measurements, optional body photos, and user settings such as rest timer defaults and gym equipment. All data lives in the app-private storage area and is removed when you uninstall the app.</p>
+    <h2>2. 개인정보의 보유 및 파기</h2>
+    <ul>
+      <li>기기 내 데이터는 이용자가 앱에서 직접 삭제하거나 앱을 삭제할 때 함께 삭제됩니다.</li>
+      <li>Google Drive 백업은 이용자가 앱 또는 Google Drive에서 직접 삭제할 수 있습니다.</li>
+      <li>개발자는 별도로 보관하는 개인정보가 없습니다.</li>
+    </ul>
 
-  <h2 id="en-data-storage">Where data lives and how it is backed up</h2>
-  <p>Storage is local by default. Only when you explicitly run &quot;Google Drive backup&quot; does the same data get uploaded to your own Google Drive hidden folder (appDataFolder). This folder is not visible in your normal Drive file list and is accessible only to Liftrune. The developer cannot read your backup data. Additionally, if Android system Auto Backup is enabled on your device, the operating system may automatically back up your workout data (photos excluded) to your own Google Drive quota in the app-data area (under 25 MB) and restore it when you reinstall the app or move to a new phone. You can turn this off in your operating system settings.</p>
+    <h2>3. 광고 서비스 (Google AdMob)</h2>
+    <ul>
+      <li>본 앱은 광고 게재를 위해 <strong>Google AdMob</strong>을 사용합니다.</li>
+      <li><strong>광고 개인화는 이용자가 선택합니다.</strong> 기본값은 <strong>비개인화 광고</strong>이며, 첫 광고 노출 전 앱 내 안내 대화상자 또는 <strong>앱 내 더보기 → 설정 → 맞춤 광고</strong> 스위치에서 언제든지 허용/해제할 수 있습니다.</li>
+      <li><strong>맞춤 광고를 허용한 경우에만</strong> Google이 광고 식별자(광고 ID)를 관심사 기반 광고에 사용합니다. 비개인화 광고에서도 Google이 광고 게재·부정행위 방지 목적으로 광고 식별자·기기 정보를 수집·이용할 수 있으며, 이 정보는 Google이 처리하고 개발자는 접근할 수 없습니다.</li>
+      <li><strong>활성 운동 화면과 백업 화면에는 광고가 표시되지 않습니다.</strong></li>
+      <li>Google 처리방침: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+      <li>거부: 앱 내 설정 외에도 <strong>기기 설정 → Google → 광고</strong>에서 광고 ID 재설정 또는 맞춤 광고 거부.</li>
+    </ul>
 
-  <h2 id="en-google-signin">Google sign-in</h2>
-  <p>A Google account sign-in is required only when you want to use Drive backup or restore. Liftrune requests only the OAuth token needed to access the Drive appDataFolder; it does not read or store your Google account email, name, profile photo, or any other profile information. You can disconnect Drive at any time from &quot;More &rarr; Backup management&quot;.</p>
+    <h2>4. 개인정보의 국외 이전</h2>
+    <ul>
+      <li><strong>이전받는 자:</strong> Google LLC &nbsp;|&nbsp; <strong>국가:</strong> 미국</li>
+      <li><strong>항목:</strong> 광고 식별자, 기기/앱 정보, Google 계정(로그인 시)</li>
+      <li><strong>목적:</strong> 광고 게재, Google Drive 백업 인증</li>
+      <li><strong>이전 시기·방법:</strong> 앱 실행·광고 요청 또는 백업/로그인 실행 시 네트워크를 통한 실시간 전송</li>
+      <li><strong>보유·이용 기간:</strong> 광고 관련 정보는 Google 개인정보처리방침에 따라 보유; Drive 백업 파일은 이용자가 직접 삭제할 때까지 본인 Drive에 보관</li>
+      <li><strong>거부 방법:</strong> 광고 ID 재설정/맞춤광고 거부; Google 계정 로그인을 하지 않으면 Drive 관련 이전이 발생하지 않습니다.</li>
+    </ul>
 
-  <h2 id="en-ads">Advertising</h2>
-  <p>This build serves Google AdMob production ads in non-personalized mode (nonPersonalizedAds). The active workout screen and backup screen are ad-free zones. No personal data is shared with AdMob for ad targeting.</p>
+    <h2>5. 위치정보</h2>
+    <ul>
+      <li>가까운 즐겨찾기 헬스장 추천 기능에 한해 단말기 위치(GPS)를 사용합니다.</li>
+      <li>위치 정보는 <strong>기기 내에서만 일시 처리되며, 개발자·외부 서버로 전송·저장되지 않습니다.</strong></li>
+      <li>위치 사용은 <strong>선택 사항</strong>입니다.</li>
+      <li>앱은 <strong>대략적 위치(약 100m 정밀도)</strong>만 사용하며, <strong>백그라운드 위치 추적을 수행하지 않습니다.</strong></li>
+    </ul>
 
-  <h2 id="en-third-party">Third-party services</h2>
-  <p>Liftrune uses only the following external services: Google Drive (only when you start a backup) and Google AdMob (non-personalized mode). No analytics, crash reporting, remote telemetry, or other advertising SDKs are bundled. YouTube search links open in your external browser; no result data is sent back to Liftrune.</p>
+    <h2>6. 이용자의 권리</h2>
+    <ul>
+      <li>모든 데이터는 이용자 기기·본인 Google Drive에 있으므로 앱 내에서 언제든 직접 열람·수정·삭제할 수 있습니다.</li>
+      <li><strong>전체 삭제:</strong> 앱 내 데이터 삭제 기능 또는 앱 삭제 + 본인 Google Drive 백업 삭제.</li>
+    </ul>
 
-  <h2 id="en-user-rights">Your rights</h2>
-  <p>Correct or delete entries: edit or delete each item from inside the app. Delete all data: uninstall the app to remove all local data. Delete Drive backups: open &quot;More &rarr; Backup management &rarr; Drive backup list&quot; to delete each backup. Revoke Google permission: open your Google account security settings and revoke Liftrune&apos;s Drive access from the third-party apps menu.</p>
+    <h2>7. 안전성 확보 조치</h2>
+    <ul>
+      <li>데이터는 기기 OS 보호 영역 및 이용자 본인 Google 계정 보안 하에 저장됩니다.</li>
+      <li>외부 서비스(AdMob·Drive) 통신은 암호화(HTTPS)로 전송됩니다.</li>
+    </ul>
 
-  <h2 id="en-changes">Changes to this policy</h2>
-  <p>This policy may be updated alongside app releases; the effective date will be updated when it changes. Significant changes will be surfaced inside the app.</p>
+    <h2>8. 개인정보 보호책임자 및 문의처</h2>
+    <ul>
+      <li>개인정보 보호책임자: 개발자 대표</li>
+      <li>연락처(이메일): ko.itbuddy@gmail.com</li>
+    </ul>
 
-  <h2 id="en-location">Location</h2>
-  <p>GPS-based gym auto-match is off by default. When the user explicitly enables it in &quot;More &rarr; Settings&quot;, the app reads a coarse location (ACCESS_COARSE_LOCATION, ~100m precision) only on-demand &mdash; when tapping &quot;Save current location&quot; or at workout start &mdash; and uses it solely to store gym coordinates on-device or to find nearby gyms. Location is never transmitted to any server or third party, and no background location tracking is performed.</p>
+    <h2>9. 권익침해 구제 방법</h2>
+    <ul>
+      <li>개인정보분쟁조정위원회 (privacy.go.kr / 1833-6972)</li>
+      <li>개인정보침해신고센터 (privacy.kisa.or.kr / 118)</li>
+      <li>대검찰청 사이버수사과 (spo.go.kr / 1301)</li>
+      <li>경찰청 사이버수사국 (ecrm.police.go.kr / 182)</li>
+    </ul>
 
-  <h2 id="en-contact">Contact</h2>
-  <p>For questions about this policy, contact <a href="mailto:ko.itbuddy@gmail.com">ko.itbuddy@gmail.com</a>.</p>
-</section>
+    <h2>10. 고지 의무</h2>
+    <p>본 방침의 추가·삭제·수정이 있을 경우 시행일 전에 앱 내 공지 등으로 안내합니다.</p>
 
-<hr class="lang-divider">
+    <h2>개정 이력</h2>
+    <ul>
+      <li>2026-07-17: 광고 조항(제3항)을 사용자 선택형 광고 개인화 동작(기본 비개인화, 앱 내 설정 변경 가능, 활성 운동·백업 화면 광고 제외)에 맞게 갱신.</li>
+      <li>2026-07-17: 민감정보 별도 동의 안내(제1항), 국외이전 시기·방법과 보유·이용 기간(제4항), 위치정보 상세(대략적 위치·백그라운드 미추적, 제5항) 보강.</li>
+    </ul>
+  </section>
 
-<section id="ko" lang="ko">
-  <h1>Liftrune 개인정보 처리방침</h1>
-  <p class="meta">시행일: 2026년 5월 21일</p>
+  <!-- ================= English ================= -->
+  <section id="en" class="lang">
+    <h1>Liftrune Privacy Policy</h1>
+    <p class="eff">Effective date: 2026-06-26 · Last revised: 2026-07-17</p>
 
-  <p>Liftrune은 운동 기록을 기기 내에 저장하는 로컬 우선(local-first) 앱입니다. 본 처리방침은 Liftrune이 어떤 데이터를 처리하고 어디로 전송하는지를 설명합니다.</p>
+    <div class="summary">
+      <strong>Summary — the App does not collect your personal data to any server.</strong><br>
+      The App runs entirely on your device (local-first) and operates no developer server. The developer does
+      <strong>not collect, store, or access</strong> any of your workout records, body data, or photos. All data is stored
+      <strong>only on your device</strong> or <strong>in your own Google Drive</strong>.
+    </div>
 
-  <h2 id="ko-data-collected">수집·저장하는 데이터</h2>
-  <p>Liftrune은 다음 데이터를 기기 내 ObjectBox 데이터베이스에 저장합니다: 운동 프로그램·세션·세트 기록, 신체 측정값, 신체 사진(선택), 휴식 시간·기구 보유 등 사용자 설정. 모든 데이터는 앱 전용 저장소에 보관되며, 앱을 삭제하면 함께 삭제됩니다.</p>
+    <h2>1. Information Processed and Purposes</h2>
+    <table>
+      <tr><th>Category</th><th>Items</th><th>Stored</th><th>Purpose</th><th>Who holds it</th></tr>
+      <tr><td>Workout/body data</td><td>Workout logs, programs, body metrics, body photos</td><td>Your device</td><td>Workout logging</td><td>You (developer has no access)</td></tr>
+      <tr><td>Backup</td><td>Backups of the above</td><td>Your own Google Drive (app-private folder)</td><td>Backup/restore you choose</td><td>You (Google)</td></tr>
+      <tr><td>Sign-in</td><td>Google account (email)</td><td>Google auth system</td><td>Drive backup auth</td><td>Google</td></tr>
+      <tr><td>Ad identifiers</td><td>Advertising ID, device/app info</td><td>Google (AdMob) servers</td><td>Serving ads</td><td>Google LLC</td></tr>
+      <tr><td>Location</td><td>Device location (GPS)</td><td>Processed on-device only (not transmitted)</td><td>Suggest nearest saved gym</td><td>You</td></tr>
+    </table>
+    <p>The App does <strong>not transmit or collect</strong> this information to any developer server. Your workout, body, and photo data exist solely on your device and in your own Google Drive. Body metrics and body photos are <strong>sensitive (health) information</strong> and are stored only after you give <strong>separate in-app consent</strong> before the first save.</p>
 
-  <h2 id="ko-data-storage">저장 위치와 백업</h2>
-  <p>기본 저장은 기기 로컬입니다. 사용자가 직접 &lsquo;Google Drive 백업&rsquo;을 실행한 경우에만 동일한 데이터가 사용자 본인의 Google Drive 숨김 폴더(appDataFolder)로 업로드됩니다. 이 폴더는 사용자의 Drive 일반 파일 목록에 노출되지 않으며, Liftrune만 접근할 수 있습니다. 개발자는 사용자의 백업 데이터에 접근하지 않습니다. 또한 Android 시스템 자동 백업이 활성화된 기기에서는 운영체제가 운동 데이터(사진 제외)를 사용자 본인의 Google Drive 할당량의 앱 데이터 영역(25MB 이하)에 자동 백업/복원할 수 있으며, 운영체제 설정에서 끌 수 있습니다.</p>
+    <h2>2. Retention and Deletion</h2>
+    <ul>
+      <li>On-device data is kept until you delete it in the App or uninstall the App.</li>
+      <li>Google Drive backups can be deleted by you, in the App or in Google Drive.</li>
+      <li>The developer holds no personal data separately.</li>
+    </ul>
 
-  <h2 id="ko-google-signin">Google 로그인</h2>
-  <p>Drive 백업·복원을 사용하려는 경우에만 Google 계정 로그인이 필요합니다. Liftrune은 Drive appDataFolder 접근에 필요한 OAuth 토큰만 받으며, Google 계정의 이메일·이름·프로필 사진 등 어떤 프로필 정보도 읽거나 저장하지 않습니다. &lsquo;더보기 &rarr; 백업 관리&rsquo;에서 언제든 Drive 연결을 해제할 수 있습니다.</p>
+    <h2>3. Advertising (Google AdMob)</h2>
+    <ul>
+      <li>The App uses <strong>Google AdMob</strong> to display ads.</li>
+      <li><strong>Ad personalization is your choice.</strong> The default is <strong>non-personalized ads</strong>; you can allow or turn it off at any time — in the in-app dialog shown before your first ad, or with the <strong>in-app More → Settings → Personalized ads</strong> switch.</li>
+      <li><strong>Only if you allow it</strong> does Google use your advertising ID for interest-based ads. Even in non-personalized mode, Google may collect and use advertising identifiers and device info to serve ads and prevent fraud; this data is processed by Google and the developer cannot access it.</li>
+      <li><strong>No ads are shown on the active workout screen or the backup screen.</strong></li>
+      <li>Google's policy: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+      <li>Opt out: in addition to the in-app setting, reset your advertising ID or opt out of personalized ads in <strong>Device Settings → Google → Ads</strong>.</li>
+    </ul>
 
-  <h2 id="ko-ads">광고</h2>
-  <p>현재 빌드는 Google AdMob 프로덕션 광고를 비개인화 모드(nonPersonalizedAds)로 표시합니다. 활성 운동 화면과 백업 화면은 광고 제외 영역입니다. 광고 타게팅을 위해 어떠한 개인 정보도 AdMob과 공유하지 않습니다.</p>
+    <h2>4. International Transfer</h2>
+    <ul>
+      <li><strong>Recipient:</strong> Google LLC &nbsp;|&nbsp; <strong>Country:</strong> United States</li>
+      <li><strong>Items:</strong> advertising identifiers, device/app info, Google account (when signed in)</li>
+      <li><strong>Purpose:</strong> serving ads, Google Drive backup authentication</li>
+      <li><strong>When and how:</strong> transmitted in real time over the network when the app runs, requests an ad, or when you back up / sign in</li>
+      <li><strong>Retention:</strong> ad-related data is retained per Google's Privacy Policy; Drive backup files remain in your own Drive until you delete them</li>
+      <li><strong>How to refuse:</strong> reset/opt out of the advertising ID; if you don't sign in, no Drive-related transfer occurs.</li>
+    </ul>
 
-  <h2 id="ko-third-party">제3자 서비스</h2>
-  <p>Liftrune은 다음 외부 서비스만 사용합니다: Google Drive(사용자가 백업을 시작한 경우에만), Google AdMob(비개인화 모드). 분석(Analytics), 충돌 보고(Crashlytics), 원격 telemetry, 광고 외 외부 SDK는 포함되어 있지 않습니다. YouTube 검색 링크는 외부 브라우저에서 열리며 Liftrune에는 결과가 전송되지 않습니다.</p>
+    <h2>5. Location</h2>
+    <ul>
+      <li>Device location (GPS) is used solely to suggest your nearest saved gym.</li>
+      <li>Location is <strong>processed only on your device and is not transmitted to or stored by the developer or any external server.</strong></li>
+      <li>Location use is <strong>optional</strong>.</li>
+      <li>The App uses <strong>approximate location only (about 100 m accuracy)</strong> and performs <strong>no background location tracking</strong>.</li>
+    </ul>
 
-  <h2 id="ko-user-rights">사용자의 권리</h2>
-  <p>데이터 정정·삭제: 앱 내에서 각 항목을 직접 편집·삭제할 수 있습니다. 전체 데이터 삭제: 앱을 제거하면 로컬 데이터가 모두 삭제됩니다. Drive 백업 삭제: &lsquo;더보기 &rarr; 백업 관리 &rarr; Drive 백업 목록&rsquo;에서 각 백업을 삭제할 수 있습니다. Google 계정 권한 철회: Google 계정 보안 설정의 제3자 앱 메뉴에서 Liftrune의 Drive 접근 권한을 철회할 수 있습니다.</p>
+    <h2>6. Your Rights</h2>
+    <ul>
+      <li>Because all data lives on your device and in your own Google Drive, you can view, edit, and delete it anytime in the App.</li>
+      <li><strong>Delete all:</strong> use the App's data-deletion feature, or uninstall the App + delete the backup in your own Google Drive.</li>
+    </ul>
 
-  <h2 id="ko-changes">처리방침 변경</h2>
-  <p>본 처리방침은 앱 업데이트와 함께 갱신될 수 있으며, 변경 시 시행일이 갱신됩니다. 중요한 변경은 앱 내에서 안내합니다.</p>
+    <h2>7. Security</h2>
+    <ul>
+      <li>Data is stored within your device's OS-protected storage and under your own Google account security.</li>
+      <li>Communication with external services (AdMob, Drive) is sent over encrypted (HTTPS) channels.</li>
+    </ul>
 
-  <h2 id="ko-location">위치 정보</h2>
-  <p>GPS 기반 헬스장 자동 매칭은 기본적으로 꺼져 있습니다. 사용자가 &lsquo;더보기 &rarr; 설정&rsquo;에서 직접 켠 경우에만, &lsquo;현재 위치 저장&rsquo; 버튼을 누르거나 운동 시작 시점에 한해 한 번씩 대략적인 위치(ACCESS_COARSE_LOCATION, 약 100m 정밀도)를 읽어 헬스장 좌표를 기기 내에 저장하거나 가까운 헬스장을 찾는 데만 사용합니다. 위치 정보는 외부 서버나 제3자에게 전송되지 않으며, 백그라운드 위치 추적도 수행하지 않습니다.</p>
+    <h2>8. Privacy Officer &amp; Contact</h2>
+    <ul>
+      <li>Privacy officer: Developer (sole proprietor)</li>
+      <li>Contact (email): ko.itbuddy@gmail.com</li>
+    </ul>
 
-  <h2 id="ko-contact">문의</h2>
-  <p>본 처리방침과 관련된 문의는 <a href="mailto:ko.itbuddy@gmail.com">ko.itbuddy@gmail.com</a> 으로 연락해 주세요.</p>
-</section>
+    <h2>9. Remedies (Republic of Korea)</h2>
+    <ul>
+      <li>Personal Information Dispute Mediation Committee (privacy.go.kr / +82-1833-6972)</li>
+      <li>Privacy Infringement Report Center, KISA (privacy.kisa.or.kr / 118)</li>
+      <li>Supreme Prosecutors' Office Cybercrime Division (spo.go.kr / 1301)</li>
+      <li>National Police Agency Cyber Bureau (ecrm.police.go.kr / 182)</li>
+    </ul>
 
+    <h2>10. Changes</h2>
+    <p>If this policy changes, we will provide notice (e.g., in-app) before the changes take effect.</p>
+
+    <h2>Revision history</h2>
+    <ul>
+      <li>2026-07-17: Updated the advertising section (§3) to match the user-selectable ad personalization behavior (non-personalized by default, changeable in the in-app settings, no ads on the active workout / backup screens).</li>
+      <li>2026-07-17: Added the sensitive-data separate-consent note (§1), transfer timing/method and retention (§4), and location details (approximate location, no background tracking) (§5).</li>
+    </ul>
+  </section>
+
+  <p class="foot">© Liftrune. Hosted at koitbuddy.com.</p>
+</div>
+
+<script>
+  function setLang(l){
+    if(l!=='ko' && l!=='en') l='en';
+    document.documentElement.lang = l;
+    document.getElementById('ko').classList.toggle('active', l==='ko');
+    document.getElementById('en').classList.toggle('active', l==='en');
+    document.getElementById('btn-ko').classList.toggle('active', l==='ko');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+  }
+  // 초기 언어: #ko/#en 딥링크 > ?lang= > 브라우저/앱 로케일 > 영어 기본
+  (function(){
+    var h = (location.hash || '').replace('#','').toLowerCase();
+    var q = (new URLSearchParams(location.search).get('lang') || '').toLowerCase();
+    var nav = (navigator.language || 'en').toLowerCase();
+    var initial = (h==='ko'||h==='en') ? h
+                : (q==='ko'||q==='en') ? q
+                : (nav.indexOf('ko')===0 ? 'ko' : 'en');
+    setLang(initial);
+  })();
+</script>
 </body>
 </html>
